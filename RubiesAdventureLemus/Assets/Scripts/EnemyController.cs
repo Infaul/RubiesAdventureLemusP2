@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController2 : MonoBehaviour
 {
     public float speed;
     public bool vertical;
@@ -12,10 +12,12 @@ public class EnemyController : MonoBehaviour
     float timer;
     int direction = 1;
     // Start is called before the first frame update
+    Animator animator;
     void Start()
     {
        rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -35,12 +37,14 @@ public class EnemyController : MonoBehaviour
         if (vertical)
         {
             position.y = position.y + Time.deltaTime * speed * direction; ;
-
+            animator.SetFloat("Move X", 0);
+            animator.SetFloat("Move y", direction);
         }
         else
         {
             position.x = position.x + Time.deltaTime * speed * direction; ;
-
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move y", 0);
         }
 
 
