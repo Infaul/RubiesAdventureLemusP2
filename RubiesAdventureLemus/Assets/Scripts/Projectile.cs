@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    
     Rigidbody2D rigidbody2d;
     // Start is called before the first frame update
     void Awake()
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
         if(transform.position.magnitude > 1000.0f)
         {
           Destroy(gameObject);
+          
         }
         
     }
